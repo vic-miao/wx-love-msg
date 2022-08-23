@@ -3,14 +3,14 @@ server.port: 8013
 logging.file.path: log
 logging.level.com.xiake: info
 #微信公众号信息
-wx.mp.appId: wxdf292af502438085
-wx.mp.secret: 2fa85bef5f9af6176db054de05d9d37e
-wx.mp.templateId: 2tQpD0udq5pHIDOlO9mInJgy5zqTB2eytMQhtLai0zM
+wx.mp.appId:
+wx.mp.secret:
+wx.mp.templateId:
 wx.mp.city: 西安
 wx.mp.firstMsg: 每天都要想你N遍
 wx.mp.cron: 0 0 7 1/1 * ?
 wx.mp.openid:
 
 #第三方数据api
-thirdData.jitangKey: 39ca6f5bcdd315e9e316169271b06dfb
-thirdData.weatherKey: 790c3aa80d3643330848e3903b7bf95b
+thirdData.jitangKey:
+thirdData.weatherKey:
