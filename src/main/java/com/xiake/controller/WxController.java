@@ -70,6 +70,10 @@ public class WxController {
         if (StringUtils.isEmpty(openId)) {
             throw new RuntimeException("推送用户为空");
         }
+        if (StringUtils.isEmpty(appId) || StringUtils.isEmpty(secret)) {
+            log.info("微信配置信息，appid:{},secret:{}", appId, secret);
+            throw new RuntimeException("微信配置错误，请检查");
+        }
         JSONObject weatherFromThird = null;
         try {
             weatherFromThird = jiTangMsgService.getWeatherFromThird(city);
@@ -94,10 +98,10 @@ public class WxController {
         templateMessage.addData(new WxMpTemplateData("humidity", weatherFromThird.getJSONObject("realtime").getString("humidity") + "%", "#3333CC"));
         templateMessage.addData(new WxMpTemplateData("content", StringUtils.isEmpty(jiTangMsg) ? "" : jiTangMsg, "#A417C7"));
         try {
+            log.info("发送模板消息，模板id:{},消息内容:{}", templateId, templateMessage.toJson());
             wxMpService.getTemplateMsgService().sendTemplateMsg(templateMessage);
-        } catch (WxErrorException e) {
-            e.printStackTrace();
-            log.error("推送失败");
+        } catch (Exception e) {
+            log.error("推送失败", e);
         }
     }
 

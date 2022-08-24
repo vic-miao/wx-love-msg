@@ -2,13 +2,14 @@ spring.application.name: love-msg
 server.port: 8013
 logging.file.path: log
 logging.level.com.xiake: info
+logging.level.root: error
 #微信公众号信息
 wx.mp.appId:
 wx.mp.secret:
 wx.mp.templateId:
 wx.mp.city: 西安
 wx.mp.firstMsg: 每天都要想你N遍
-wx.mp.cron: 0 0 7 1/1 * ?
+#wx.mp.cron: 0 0 7 1/1 * ?
 wx.mp.openid:
 
 #第三方数据api
